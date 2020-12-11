@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "8ed15a1e-1d1c-4d5d-a4d6-7043f7c54c37",
+		"name": "TELR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Translate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_TELR_URL}}/pokemon/{{pokemon-name}}",
+					"host": [
+						"{{BASE_TELR_URL}}"
+					],
+					"path": [
+						"pokemon",
+						"{{pokemon-name}}"
+					]
+				},
+				"description": "Translate pokemon name to Shakespearean description"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
