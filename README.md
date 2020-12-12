@@ -8,9 +8,16 @@ I develop this service during my spare time, so you can monitor the progress of 
 
 Basically, I will develop using a [Gitflow](https://leanpub.com/git-flow/read) approach and release new versions of the software according to the milestones above.
 
+# Execute tests
+
+To execute tests, type from inside the project folder
+```
+$ ./mvnw test
+```
+
 # Run the software
 
-In order to run the code from the terminal, type from inside the project folder:
+In order to run the API from the terminal, type from inside the project folder:
 
 ```
 $ ./mvnw spring-boot:run
