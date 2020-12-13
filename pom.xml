@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.lordkada</groupId>
 	<artifactId>telr</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>telr</name>
 	<description>Pokemon names to Shakespearean description</description>
