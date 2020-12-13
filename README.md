@@ -17,7 +17,7 @@ $ ./mvnw test
 
 # Docs
 
-In the _docs_ folder you can find the Postman collection for this project
+In the [docs](/docs) folder you can find the Postman collection for this project
 
 # Run the software
 
