@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+Published the first release of software as described [here](https://github.com/lordkada/telr/milestone/1).
+
+### Added
+- Added the GET /pokemon/{{pokemon-name}} endpoint
+- Added the Postman collection with useful endpoints
+
 ## [0.0.0] - 2020-12-11
 
 Repository and project definitions.
