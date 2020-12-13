@@ -6,6 +6,105 @@
 	},
 	"item": [
 		{
+			"name": "PokeApi",
+			"item": [
+				{
+					"name": "Fetch Pokemon Species (description)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon-species/{{pokemon-name}}",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon-species",
+								"{{pokemon-name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List the version of the games for the resource",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/version?offset=0&limit=50",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"version"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "FunTranslations",
+			"item": [
+				{
+					"name": "Shakespeare translate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.",
+									"type": "text"
+								}
+							],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "https://api.funtranslations.com/translate/shakespeare.json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"funtranslations",
+								"com"
+							],
+							"path": [
+								"translate",
+								"shakespeare.json"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Translate",
 			"request": {
 				"method": "GET",
