@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "8ed15a1e-1d1c-4d5d-a4d6-7043f7c54c37",
+		"name": "TELR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PokeApi",
+			"item": [
+				{
+					"name": "Fetch Pokemon Species (description)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon-species/{{pokemon-name}}",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon-species",
+								"{{pokemon-name}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List the version of the games for the resource",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/version?offset=0&limit=50",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"version"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "FunTranslations",
+			"item": [
+				{
+					"name": "Shakespeare translate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.",
+									"type": "text"
+								}
+							],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "https://api.funtranslations.com/translate/shakespeare.json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"funtranslations",
+								"com"
+							],
+							"path": [
+								"translate",
+								"shakespeare.json"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Translate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_TELR_URL}}/pokemon/{{pokemon-name}}",
+					"host": [
+						"{{BASE_TELR_URL}}"
+					],
+					"path": [
+						"pokemon",
+						"{{pokemon-name}}"
+					]
+				},
+				"description": "Translate pokemon name to Shakespearean description"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
