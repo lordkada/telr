@@ -19,6 +19,10 @@ public class ServiceErrorToHttpResponse {
                 status = HttpStatus.NOT_FOUND;
                 break;
 
+            case 429:
+                status = HttpStatus.TOO_MANY_REQUESTS;
+                break;
+
             case 400:
                 status = HttpStatus.BAD_REQUEST;
                 break;
