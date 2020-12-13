@@ -11,4 +11,18 @@ public class ServiceErrorBuilder extends RuntimeException {
             .build();
     }
 
+    public static ServiceError quotaLimitsExceeded() {
+        return ServiceError.builder()
+            .code(429)
+            .message("Exceeded usage limits")
+            .build();
+    }
+
+    public static ServiceError genericError(String message) {
+        return ServiceError.builder()
+            .code(500)
+            .message(message)
+            .build();
+    }
+
 }

@@ -32,11 +32,10 @@ public class UsvcErrorBuilder {
             .build();
     }
 
-
     public static UsvcError quotaLimitsExceeded(String cause) {
         return UsvcError.builder()
             .code(429)
-            .message("Caused: " + cause)
+            .message(cause)
             .build();
     }
 
