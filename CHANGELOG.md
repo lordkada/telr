@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2020-13-11
+
 Published the first release of software as described [here](https://github.com/lordkada/telr/milestone/1).
 
 ### Added
