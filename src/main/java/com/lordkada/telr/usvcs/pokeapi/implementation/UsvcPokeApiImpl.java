@@ -7,7 +7,9 @@ import com.lordkada.telr.usvcs.errors.UsvcErrorBuilder;
 import com.lordkada.telr.usvcs.pokeapi.UsvcPokeApi;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.CompletableFuture;
@@ -25,9 +27,10 @@ public class UsvcPokeApiImpl extends UsvcBase implements UsvcPokeApi {
     public CompletableFuture<String> describe(String pokemonName) {
         return CompletableFuture.supplyAsync(() -> {
             HttpEntity<?> httpEntity = new HttpEntity<>(headers);
-            ResponseEntity<String> response = restTemplate.exchange(POKEAPI_BASE_URL + "/pokemon-species/" + pokemonName, HttpMethod.GET, httpEntity, String.class);
 
             try {
+                ResponseEntity<String> response = restTemplate.exchange(POKEAPI_BASE_URL + "/pokemon-species/" + pokemonName, HttpMethod.GET, httpEntity, String.class);
+
                 JsonNode root = mapper.readTree(response.getBody());
                 JsonNode flavor_text_entries = root.get("flavor_text_entries");
 
@@ -42,6 +45,12 @@ public class UsvcPokeApiImpl extends UsvcBase implements UsvcPokeApi {
                 }
 
                 throw UsvcErrorBuilder.genericError(NO_DESCRIPTION_FOUND);
+            } catch (HttpClientErrorException e) {
+                if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                    throw UsvcErrorBuilder.pokemonNotFound(pokemonName);
+                }
+
+                throw UsvcErrorBuilder.genericError(e.getMessage());
             } catch (JsonProcessingException e) {
                 throw UsvcErrorBuilder.genericError(e.getMessage());
             }
