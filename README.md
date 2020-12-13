@@ -1,4 +1,4 @@
-# Welcome to "TELR"
+# Welcome to "TELR" ![](https://img.shields.io/github/v/tag/lordkada/telr)
 
 The goal of "TELR" is to implement a simple API service that translates a Pokeman name to a Shakespearean description.
 
