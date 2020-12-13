@@ -1,4 +1,4 @@
-package com.lordkada.telr.usvcs.pokeapi.errors.beans;
+package com.lordkada.telr.usvcs.errors.beans;
 
 import lombok.Builder;
 import lombok.Data;

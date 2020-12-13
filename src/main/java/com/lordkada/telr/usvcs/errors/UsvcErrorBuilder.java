@@ -1,6 +1,6 @@
-package com.lordkada.telr.usvcs.pokeapi.errors;
+package com.lordkada.telr.usvcs.errors;
 
-import com.lordkada.telr.usvcs.pokeapi.errors.beans.UsvcError;
+import com.lordkada.telr.usvcs.errors.beans.UsvcError;
 
 public class UsvcErrorBuilder {
 

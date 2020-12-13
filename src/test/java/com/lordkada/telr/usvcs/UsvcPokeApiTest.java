@@ -1,8 +1,8 @@
 package com.lordkada.telr.usvcs;
 
 import com.lordkada.telr.usvcs.pokeapi.UsvcPokeApi;
-import com.lordkada.telr.usvcs.pokeapi.errors.UsvcErrorBuilder;
-import com.lordkada.telr.usvcs.pokeapi.errors.beans.UsvcError;
+import com.lordkada.telr.usvcs.errors.UsvcErrorBuilder;
+import com.lordkada.telr.usvcs.errors.beans.UsvcError;
 import com.lordkada.telr.usvcs.pokeapi.implementation.UsvcPokeApiImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

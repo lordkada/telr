@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lordkada.telr.usvcs.pokeapi.UsvcPokeApi;
-import com.lordkada.telr.usvcs.pokeapi.errors.UsvcErrorBuilder;
+import com.lordkada.telr.usvcs.errors.UsvcErrorBuilder;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
