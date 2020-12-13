@@ -17,34 +17,38 @@ import static com.lordkada.telr.usvcs.pokeapi.implementation.PokeApiConstants.PO
 public class UsvcPokeApiImpl implements UsvcPokeApi {
 
     final private RestTemplate restTemplate;
+    final private HttpEntity<?> httpEntity;
 
     public UsvcPokeApiImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("user-agent", "Telr/usvc-PokeApi");
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        httpEntity = new HttpEntity<>(headers);
     }
 
     @Override
     public CompletableFuture<String> describe(String pokemonName) {
         return CompletableFuture.supplyAsync(() -> {
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("user-agent", "Telr/usvc-PokeApi");
-            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-
-            HttpEntity<?> httpEntity = new HttpEntity<>(headers);
-
             ResponseEntity<String> response = restTemplate.exchange(POKEAPI_BASE_URL + "/pokemon-species/" + pokemonName, HttpMethod.GET, httpEntity, String.class);
 
             try {
                 ObjectMapper mapper = new ObjectMapper();
                 JsonNode root = mapper.readTree(response.getBody());
                 JsonNode flavor_text_entries = root.get("flavor_text_entries");
-                JsonNode jsonNode = StreamSupport.stream(flavor_text_entries.spliterator(), false)
-                    .filter(node -> node.get("language").get("name").asText().equals("en"))
-                    .filter(node -> node.get("version").get("name").asText().equals(PokeApiConstants.GAME_VERSION))
-                    .findFirst()
-                    .orElseThrow(() -> UsvcErrorBuilder.pokemonNotFound(pokemonName));
 
-                return jsonNode.get("flavor_text").asText();
+                if (flavor_text_entries != null) {
+                    JsonNode jsonNode = StreamSupport.stream(flavor_text_entries.spliterator(), false)
+                        .filter(node -> node.get("language").get("name").asText().equals("en"))
+                        .filter(node -> node.get("version").get("name").asText().equals(PokeApiConstants.GAME_VERSION))
+                        .findFirst()
+                        .orElseThrow(() -> UsvcErrorBuilder.pokemonNotFound(pokemonName));
+
+                    return jsonNode.get("flavor_text").asText();
+                }
+
+                throw UsvcErrorBuilder.genericError(NO_DESCRIPTION_FOUND);
             } catch (JsonProcessingException e) {
                 throw UsvcErrorBuilder.genericError(e.getMessage());
             }

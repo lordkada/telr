@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.CompletionException;
 
+import static com.lordkada.telr.usvcs.pokeapi.UsvcPokeApi.NO_DESCRIPTION_FOUND;
 import static com.lordkada.telr.usvcs.pokeapi.implementation.PokeApiConstants.POKEAPI_BASE_URL;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -85,6 +86,27 @@ public class UsvcPokeApiTest {
         InOrder inOrder = Mockito.inOrder(restTemplate);
         inOrder.verify(restTemplate).exchange(eq(POKEAPI_BASE_URL + "/pokemon-species/" + pokemonName), eq(HttpMethod.GET), any(), eq(String.class));
         inOrder.verifyNoMoreInteractions();
+    }
+
+    @Test
+    public void shouldComplainOfNotExistingDescription() {
+        String pokemonName = "pokemonWithoutDescription";
+
+        ResponseEntity<String> responseEntity = new ResponseEntity<>("{}", HttpStatus.OK);
+
+        Mockito.doReturn(responseEntity)
+            .when(restTemplate)
+            .exchange(eq(POKEAPI_BASE_URL + "/pokemon-species/" + pokemonName), eq(HttpMethod.GET), any(), eq(String.class));
+
+        UsvcPokeApi usvcPokeApi = new UsvcPokeApiImpl(restTemplate);
+
+        try {
+            usvcPokeApi.describe(pokemonName).join();
+            Assertions.fail("Shouldn't pass here");
+        } catch (CompletionException e) {
+            UsvcError usvcError = (UsvcError) e.getCause();
+            Assertions.assertEquals(UsvcErrorBuilder.genericError(NO_DESCRIPTION_FOUND).getMessage(), usvcError.getMessage());
+        }
     }
 
     @Test

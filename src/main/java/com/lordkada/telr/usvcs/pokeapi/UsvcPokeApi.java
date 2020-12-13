@@ -4,6 +4,8 @@ import java.util.concurrent.CompletableFuture;
 
 public interface UsvcPokeApi {
 
+    public static String NO_DESCRIPTION_FOUND = "No flavor_text_entries found";
+
     CompletableFuture<String> describe(String pokemonName);
 
 }
