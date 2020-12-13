@@ -15,9 +15,13 @@ To execute tests, type from inside the project folder
 $ ./mvnw test
 ```
 
+# Docs
+
+In the _docs_ folder you can find the Postman collection for this project
+
 # Run the software
 
-In order to run the API from the terminal, type from inside the project folder:
+To run the API from the terminal, type from inside the project folder:
 
 ```
 $ ./mvnw spring-boot:run
