@@ -40,7 +40,7 @@ Please, follow these simple steps:
 
 1. Create the docker image by running the _devops/build_docker.sh_ script by providing the VERSION of TELR you want to use, eg:
 ```
-$ $VERSION=develop devops/build_docker.sh
+$ VERSION=develop devops/build_docker.sh
 ```
 
 2. Run the docker container:
@@ -67,7 +67,7 @@ _pokemon-name_: The name of the Pokemon you want to be described
 
 Eg:
 ```
-$ curl --location --request GET 'localhost:8080/pokemon/charizard'
+$ curl --request GET localhost:8080/pokemon/charizard
 ```
 
 produces:
