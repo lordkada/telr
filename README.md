@@ -34,37 +34,23 @@ $ ./mvnw spring-boot:run
 ```
 
 ## Run inside a Docker container
-follow these simple steps:
+The Dockerfile and convenience scripts to build and run the docker image are placed in the [devops](/devops) folder.
 
-1. Build the docker image locally:
-```
-$ devops/build_docker_image.sh
-```
+Please, follow these simple steps:
 
-2. Check-out the result and notice the name/tag of the created image in the very few last lines of log. Eg:
-   
+1. Create the docker image by running the _devops/build_docker.sh_ script by providing the VERSION of TELR you want to use, eg:
 ```
-[INFO] Successfully built image 'docker.io/library/telr:1.0.0-SNAPSHOT'
-[INFO] 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.107 s
-[INFO] Finished at: 2020-12-13T18:35:40+01:00
-[INFO] ------------------------------------------------------------------------
+$ $VERSION=develop devops/build_docker.sh
 ```
 
-In the example above the name/tag is: **telr:1.0.0-SNAPSHOT**
-
-3. Run the docker container with the following command (please, replace the name/tag according to the step above):
+2. Run the docker container:
 ```
-$ docker run -it -d -p8080:8080 telr:1.0.0-SNAPSHOT
+$ VERSION=develop devops/start_docker.sh
 ```
 
 # Show me how to use TELR
 
-Once started, here you have the endpoint available.
-
+Once started (local JVM or Docker container), here you have your endpoint available, here the synopsis:
 
 ## Get a Pokemon Shakespearean description
 ### HTTP/GET ==> /pokemon/{pokemon-name}
