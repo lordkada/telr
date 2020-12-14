@@ -23,7 +23,7 @@ In the [docs](/docs) folder you can find the Postman collection for this project
 
 To run the API from the terminal/shell, you have a couple of alternatives:
 
-- using your local JVM (you need: [JDK1.8+](https://openjdk.java.net/install/) and [Maven](https://maven.apache.org/download.cgi))
+- using your local JVM (you need: [JDK1.8+](https://openjdk.java.net/install/))
 - run a docker container (you need: [Docker](https://www.docker.com/))
 
 
