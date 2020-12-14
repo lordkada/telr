@@ -6,7 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.0] - 2020-13-11
+## [1.1.0] - 2020-12-13
+
+Docker containers
+
+### Added
+- Added Dockerfile and convenience scripts to build and run the Docker image
+
+## [1.0.0] - 2020-12-13
 
 Published the first release of software as described [here](https://github.com/lordkada/telr/milestone/1).
 
