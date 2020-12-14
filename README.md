@@ -8,13 +8,6 @@ I develop this service during my spare time, so you can monitor the progress of 
 
 Basically, I will develop using a [Gitflow](https://leanpub.com/git-flow/read) approach and release new versions of the software according to the milestones above.
 
-# Execute tests
-
-To execute tests, type from inside the project folder
-```
-$ ./mvnw test
-```
-
 # Docs
 
 In the [docs](/docs) folder you can find the Postman collection for this project
@@ -26,6 +19,12 @@ To run the API from the terminal/shell, you have a couple of alternatives:
 - using your local JVM (you need: [JDK1.8+](https://openjdk.java.net/install/))
 - run a docker container (you need: [Docker](https://www.docker.com/))
 
+## Launch tests
+
+To execute tests, type from inside the project folder
+```
+$ ./mvnw test
+```
 
 ## Run locally (JVM)
 type from inside the project folder:
