@@ -1,4 +1,4 @@
-package com.lordkada.telr.resources.translator;
+package com.lordkada.telr.resources;
 
 
 import com.lordkada.telr.resources.DTORepresentationHelpers;
