@@ -58,7 +58,7 @@ Once started (local JVM or Docker container), here you have your endpoint availa
 #### Parameter:
 _pokemon-name_: The name of the Pokemon you want to be described 
 
-####Result:
+#### Result:
 
 **SUCCESS**: 
 - HTTP status 200 
