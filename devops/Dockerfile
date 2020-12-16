@@ -1,5 +1,6 @@
 FROM tomcat:10.0-jdk8-openjdk-slim
-COPY repo/target/dependency-jars /run/dependency-jars
-ADD repo/target/application.jar /run/application.jar
+
+COPY target/dependency-jars /run/dependency-jars
+ADD target/application.jar /run/application.jar
 
 ENTRYPOINT java -jar /run/application.jar -D exec.mainClass="com.lordkada.telr.TelrApplication"

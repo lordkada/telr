@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 if [ -z "$VERSION" ]; then
-    echo "\$VERSION variable not defined";
+    echo "VERSION variable not defined";
     exit 1
 fi;
 
