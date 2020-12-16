@@ -38,14 +38,14 @@ The Dockerfile and convenience scripts to build and run the docker image are pla
 
 Please, follow these simple steps:
 
-1. Create the docker image by running the _devops/build_docker.sh_ script by providing the VERSION of TELR you want to use, eg:
+1. Create the docker image by running the _devops/build_docker.sh_ script by providing the VERSION of the docker image you want to create, eg:
 ```
-$ VERSION=develop devops/build_docker.sh
+$ VERSION=test devops/build_docker.sh
 ```
 
 2. Run the docker container:
 ```
-$ VERSION=develop devops/start_docker.sh
+$ VERSION=test devops/start_docker.sh
 ```
 
 # Show me how to use TELR
